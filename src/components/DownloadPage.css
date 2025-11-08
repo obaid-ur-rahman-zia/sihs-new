@@ -1,0 +1,106 @@
+.download-main {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.download-section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  /* CHANGED: Deep Blue (#003366) instead of Dark Red (#8b0000) */
+  color: #003366;
+  margin-bottom: 25px;
+}
+
+.download-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.empty-download {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 30px;
+  background: #fffdf5;
+  border: 1px dashed #ccc;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  color: #666;
+  animation: fadeIn 0.6s ease;
+}
+
+.empty-download i {
+  font-size: 2rem;
+  /* CHANGED: Deep Blue (#003366) instead of Dark Red (#8b0000) */
+  color: #003366;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.download-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: slideUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.download-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.download-desc {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.btn-download {
+  align-self: flex-start;
+  padding: 8px 14px;
+  /* CHANGED: Deep Blue (#003366) instead of Dark Red (#8b0000) */
+  background: #003366;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-download:hover {
+  /* CHANGED: Medium Blue (#004d99) instead of Red Hover (#b22222) */
+  background: #004d99;
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .download-section-title {
+    font-size: 1.6rem;
+  }
+  .download-title {
+    font-size: 1.05rem;
+  }
+  .download-desc {
+    font-size: 0.9rem;
+  }
+}

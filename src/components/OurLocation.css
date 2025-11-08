@@ -1,0 +1,162 @@
+:root {
+  /* Defining a variable for consistency */
+  --blue-primary: #003366; 
+}
+
+.our-location-section {
+  background-color: #f5f5f5;
+  padding: 60px 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  overflow: hidden;
+}
+
+.our-location-section .section-title {
+  /* CHANGED: Deep Blue (#003366) instead of Dark Red (#8B0000) */
+  color: var(--blue-primary); 
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 15px;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: fadeDown 1s ease forwards;
+} 
+
+.our-location-section .section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 0;
+  height: 5px;
+  /* CHANGED: Using the Deep Blue variable for the animated line */
+  background: var(--blue-primary); 
+  border-radius: 4px;
+  animation: titleLine 1.2s ease forwards 0.6s;
+}
+iframe {
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes fadeDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes titleLine {
+  to {
+    width: 90px;
+    opacity: 1;
+  }
+}
+
+.contact-section-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  margin: 0 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s ease forwards 1s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.map-container-compact {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  height: 400px;
+  width: 100%;
+  opacity: 0;
+  transform: translateX(-60px);
+  animation: slideInLeft 1.2s ease forwards 1.3s;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.contact-info-compact {
+  opacity: 0;
+  transform: translateX(60px);
+  animation: slideInRight 1.2s ease forwards 1.3s;
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  color: #333;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-info-item i {
+  font-size: 1.3rem;
+  /* CHANGED: Deep Blue (#003366) instead of Dark Red (#8B0000) */
+  color: var(--blue-primary); 
+  margin-right: 12px;
+  width: 25px;
+  text-align: center;
+}
+
+.contact-info-item:hover {
+  transform: translateX(8px);
+  /* CHANGED: Deep Blue (#003366) instead of Dark Red (#8B0000) */
+  color: var(--blue-primary); 
+}
+
+.opening-hours {
+  list-style: none;
+  color: #333333d3;
+  padding: 0;
+}
+
+.opening-hours li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.opening-hours li:hover {
+  /* CHANGED: Deep Blue (#003366) instead of Dark Red (#8B0000) */
+  color: var(--blue-primary); 
+}
+
+@media (max-width: 768px) {
+  .contact-section-card {
+    flex-direction: column;
+    margin: 0 20px;
+  }
+  .map-container-compact {
+    height: 300px;
+  }
+}

@@ -1,0 +1,209 @@
+.latest-events-section {
+  background: linear-gradient(135deg, #f9f9f9, #ffffff);
+  padding: 70px 0;
+}
+
+.smc-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.section-title {
+  /* Assumes --primary-color is set to #003366 */
+  color: var(--primary-color);
+  font-size: 2.7em;
+  font-weight: 800;
+  margin-bottom: 45px;
+  position: relative;
+  padding-bottom: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.latest-events-section .section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width:0px;
+  height: 5px;
+  /* Assumes --primary-color is set to #003366 */
+  background: var(--primary-color);
+  border-radius: 4px;
+  animation: titleLine 1.2s ease forwards;
+}
+
+@keyframes titleLine {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 90px;
+    opacity: 1;
+  }
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 28px;
+}
+
+.event-card-latest {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  animation: fadeUp 1s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.event-card-latest:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
+}
+
+.event-card-latest img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.event-card-latest:hover img {
+  transform: scale(1.07);
+}
+
+.card-body-latest {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.event-date-latest {
+  font-size: 0.92em;
+  /* Assumes --secondary-color is set to #004d99 */
+  color: var(--secondary-color);
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.event-date-latest i {
+  /* Assumes --primary-color is set to #003366 */
+  color: var(--primary-color);
+}
+
+.card-title-latest {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: var(--dark-text);
+  margin-bottom: 14px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-text-latest {
+  font-size: 1em;
+  color: var(--light-text);
+  margin-bottom: 18px;
+  flex-grow: 1;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.btn-primary-latest {
+  /* Assumes --primary-color is set to #003366 */
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95em;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-latest:hover {
+  /* Assumes --secondary-color is set to #004d99 */
+  background: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-primary-latest {
+  /* Assumes --primary-color is set to #003366 */
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background: transparent;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.btn-outline-primary-latest:hover {
+  /* Assumes --primary-color is set to #003366 */
+  background: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.view-all-btn {
+  margin-top: 45px;
+}
+
+@media (max-width: 992px) {
+  .section-title {
+    font-size: 2.2em;
+  }
+  .event-card-latest img {
+    height: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 2em;
+  }
+  .event-card-latest {
+    border-radius: 10px;
+  }
+  .event-card-latest img {
+    height: 160px;
+  }
+}

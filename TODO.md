@@ -1,0 +1,1 @@
+- [x] Modify NewsandEvents.jsx to accept events array as props and render cards dynamically using map()

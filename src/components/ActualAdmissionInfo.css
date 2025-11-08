@@ -1,0 +1,347 @@
+.admission-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  background: #f9f9f9;
+  position: relative;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.admission-container .criteria-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 30px;
+  max-width: 950px;
+  width: 100%;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  /* animation: cardFloat 6s ease-in-out infinite; */
+}
+
+.admission-container .nav-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.admission-container .tab-item {
+  list-style: none;
+}
+
+.admission-container .tab-link {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: #333;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.35s ease;
+}
+
+.admission-container .tab-link:hover {
+  /* CHANGED: Deep Blue (#003366) instead of Dark Red (#8b0000) */
+  color: #003366;
+  transform: translateY(-2px);
+}
+
+.admission-container .tab-link.active {
+  /* CHANGED: Deep Blue (#003366) instead of Dark Red (#8b0000) */
+  background: #003366;
+  color: #fff;
+  /* CHANGED: Deep Blue (#003366) shadow instead of Dark Red */
+  box-shadow: 0 6px 14px rgba(0, 51, 102, 0.35);
+  transform: scale(1.05);
+}
+
+.admission-container .tab-content {
+  margin-top: 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+.admission-container .tab-pane {
+  display: none;
+}
+
+.admission-container .tab-pane.active {
+  display: block;
+  animation: slideUp 0.6s ease;
+}
+
+.admission-container .section3-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 25px;
+  padding-left: 18px;
+  /* CHANGED: Deep Blue (#003366) instead of Dark Red (#8b0000) */
+  border-left: 6px solid #003366;
+  line-height: 1.4;
+  /* animation: titlePulse 2.5s  ease-in-out; */
+}
+
+.admission-container h3 {
+  margin-top: 20px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  /* CHANGED: Deep Blue (#003366) instead of Dark Red (#8b0000) */
+  color: #003366;
+  position: relative;
+}
+
+.admission-container h3::before {
+  content: "▸";
+  /* CHANGED: Deep Blue (#003366) instead of Dark Red (#8b0000) */
+  color: #003366;
+  margin-right: 8px;
+  font-size: 1rem;
+}
+
+.admission-container hr {
+  border: none;
+  height: 2px;
+  /* CHANGED: Deep Blue to Medium Blue gradient instead of Red to Brown */
+  background: linear-gradient(to left, #003366, #004d99);
+  border-radius: 2px;
+  margin: 30px 0;
+  opacity: 0.9;
+  /* CHANGED: Deep Blue shadow instead of Dark Red */
+  box-shadow: 0 2px 6px rgba(0, 51, 102, 0.25);
+  animation: expandLine 2s alternate;
+}
+
+.admission-container ul {
+  margin: 10px 0 20px 25px;
+  list-style: disc;
+}
+
+.admission-container ul li {
+  margin-bottom: 10px;
+  color: #444;
+  line-height: 1.6;
+  transition: transform 0.3s ease;
+}
+
+.admission-container ul li:hover {
+  transform: translateX(5px);
+  /* CHANGED: Deep Blue (#003366) instead of Dark Red (#8b0000) */
+  color: #003366;
+}
+
+.admission-container .note {
+  /* CHANGED: Light Blue background (#f5faff) and Deep Blue border (#003366) */
+  background: #f5faff;
+  border-left: 4px solid #003366;
+  padding: 14px 18px;
+  margin-top: 15px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  color: #333;
+  animation: fadeIn 1s ease;
+}
+
+.admission-container .criteria-disclaimer {
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: #555;
+  border-top: 1px dashed #ccc;
+  padding-top: 15px;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes titlePulse {
+  /* CHANGED: Deep Blue to Medium Blue pulse */
+  0%, 100% { color: #003366; }
+  50% { color: #004d99; }
+}
+
+@keyframes expandLine {
+  0% { width: 20%; }
+  100% { width: 100%; }
+}
+
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@media (max-width: 992px) {
+  .admission-container .section3-title {
+    font-size: 1.7rem;
+  }
+  .admission-container .criteria-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admission-container .tab-link {
+    font-size: 0.9rem;
+    padding: 10px 18px;
+  }
+  .admission-container .section3-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .admission-container {
+    padding: 20px 10px;
+  }
+  .admission-container .tab-link {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+  .admission-container .section3-title {
+    font-size: 1.3rem;
+  }
+  .admission-container h3 {
+    font-size: 1.1rem;
+  }
+}
+/* Wrapper for responsiveness */
+.eligibility-wrapper {
+  overflow-x: auto;
+  margin-top: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Table base styles */
+.eligibility-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Table headers */
+.eligibility-table thead {
+  background: linear-gradient(90deg, #004aad, #0078d7);
+  color: white;
+}
+
+.eligibility-table th {
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Table rows */
+.eligibility-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Zebra striping */
+.eligibility-table tbody tr:nth-child(odd) {
+  background: #f9faff;
+}
+
+/* Hover effect */
+.eligibility-table tbody tr:hover {
+  background: #eaf3ff;
+  transition: 0.2s;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .eligibility-table th,
+  .eligibility-table td {
+    padding: 10px;
+    font-size: 13px;
+  }
+}
+/* Eligibility Table */
+.eligibility-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+.eligibility-table thead {
+  background: linear-gradient(90deg, #004aad, #0078d7);
+  color: white;
+}
+
+.eligibility-table th,
+.eligibility-table td {
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Hover */
+.eligibility-table tbody tr:hover {
+  background: #eaf3ff;
+  transition: 0.2s;
+}
+
+/* Zebra */
+.eligibility-table tbody tr:nth-child(odd) {
+  background: #f9faff;
+}
+
+/* ========================= */
+/* RESPONSIVE TABLE → CARDS */
+/* ========================= */
+@media (max-width: 768px) {
+  .eligibility-table,
+  .eligibility-table thead,
+  .eligibility-table tbody,
+  .eligibility-table th,
+  .eligibility-table td,
+  .eligibility-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .eligibility-table thead {
+    display: none;
+  }
+
+  .eligibility-table tr {
+    background: #fff;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+  }
+
+  .eligibility-table td {
+    padding: 12px 16px;
+    font-size: 14px;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .eligibility-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #003366;
+    flex-basis: 45%;
+    text-align: left;
+  }
+}

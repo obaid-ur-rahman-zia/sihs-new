@@ -1,0 +1,112 @@
+.affiliation-section {
+  background: linear-gradient(135deg, #ffffff, #f7f7f7);
+  padding: 70px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.affiliation-title {
+  font-size: 2.3em;
+  font-weight: 800;
+  /* Uses the Deep Blue color defined in your :root block (e.g., #003366) */
+  color: var(--primary-color);
+  position: relative;
+  display: inline-block;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.affiliation-title::after {
+  content: '';
+  display: block;
+  width: 90px;
+  height: 5px;
+  /* Uses the Deep Blue color defined in your :root block (e.g., #003366) */
+  background: var(--primary-color);
+  margin: 12px auto 0;
+  border-radius: 3px;
+  animation: underlineAnim 1.2s ease forwards;
+}
+
+@keyframes underlineAnim {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 90px;
+    opacity: 1;
+  }
+}
+
+.logo-carousel-container {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  padding: 25px 0;
+}
+
+.logo-carousel-track {
+  display: flex;
+  align-items: center;
+  animation: scrollLogos 28s linear infinite;
+  will-change: transform;
+}
+
+@keyframes scrollLogos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-carousel-container:hover .logo-carousel-track {
+  animation-play-state: paused;
+}
+
+.affiliation-logo {
+  height: 110px;
+  margin: 0 28px;
+  opacity: 0.8;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  filter: grayscale(20%);
+}
+
+.affiliation-logo:hover {
+  transform: scale(1.15);
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+@media (max-width: 992px) {
+  .affiliation-title {
+    font-size: 2.2em;
+  }
+  .affiliation-logo {
+    height: 80px;
+    margin: 0 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .affiliation-title {
+    font-size: 2em;
+  }
+  .affiliation-logo {
+    height: 65px;
+    margin: 0 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .affiliation-title {
+    font-size: 1.8em;
+  }
+  .affiliation-logo {
+    height: 50px;
+    margin: 0 14px;
+  }
+}
