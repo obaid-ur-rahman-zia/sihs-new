@@ -1,6 +1,6 @@
 // Base URL for API endpoints
-export const API_BASE_URL = 'https://sihs.edu.pk/api';
-// export const API_BASE_URL = 'http://localhost:5000/api';
+// export const API_BASE_URL = 'https://sihs.edu.pk/api';
+export const API_BASE_URL = 'http://localhost:5000/api';
 
 // Auth related endpoints
 export const AUTH_API = {

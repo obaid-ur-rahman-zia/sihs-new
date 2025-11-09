@@ -66,13 +66,13 @@ mongoose
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
 // Mount API routes with consistent base paths
-app.use("/api/auth", authRoutes);
-app.use("/api/downloads", downloadsRoutes);
-app.use("/api/events", newsEventsRoutes);
-app.use("/api/notifications", notificationRoutes);
-app.use("/api/research", researchRoutes);
-app.use("/api/site-settings", siteSettingRoutes);
-app.use("/api/slider", sliderRoutes);
+app.use(`/api/auth`, authRoutes);
+app.use(`/api/downloads`, downloadsRoutes);
+app.use(`/api/events`, newsEventsRoutes);
+app.use(`/api/notifications`, notificationRoutes);
+app.use(`/api/research`, researchRoutes);
+app.use(`/api/site-settings`, siteSettingRoutes);
+app.use(`/api/slider`, sliderRoutes);
 
 // Generic 404 handler for unmatched routes
 app.use((req, res) => {
