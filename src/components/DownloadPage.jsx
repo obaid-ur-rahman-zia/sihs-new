@@ -6,7 +6,7 @@ import "./DownloadPage.css";
 function DownloadPage() {
   const [downloads, setDownloads] = useState([]);
   
-  // Extract the root domain for file URLs: http://localhost:5000
+  // Extract the root domain for file URLs: API_BASE_URL
   const baseDomainUrl = API_BASE_URL.replace("/api", ""); 
 
   useEffect(() => {

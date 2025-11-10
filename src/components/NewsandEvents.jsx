@@ -7,7 +7,7 @@ function NewsandEvents() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   
-  // Extract the root domain for file URLs: http://localhost:5000
+  // Extract the root domain for file URLs: API_BASE_URL
   const baseDomainUrl = API_BASE_URL.replace("/api", "");
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function NewsandEvents() {
             {events.map((event) => (
               <div key={event._id} className="event-card-latest">
                 <img
-                  // FIXED: Use baseDomainUrl (http://localhost:5000) for image path
+                  // FIXED: Use baseDomainUrl (API_BASE_URL) for image path
                   src={`${baseDomainUrl}${event.imageUrl || "/images/default.jpg"}`}
                   alt={event.title}
                 />

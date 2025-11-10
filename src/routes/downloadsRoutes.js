@@ -1,32 +1,30 @@
 import express from "express";
-import multer from "multer";
-import path from "path";
-import fs from "fs";
 import Downloads from "../models/downloads.js";
+import { downloadFile } from "../config/cloudinary.js";
+import { handleFileUpload, handleFileDeletion, getFileUrl } from "../utils/fileUpload.js";
 
 const router = express.Router();
 
-// Ensure uploads/downloads directory exists
-const uploadsDir = path.join("uploads", "downloads");
-if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir, { recursive: true });
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, uploadsDir),
-  filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname),
-});
-
-const upload = multer({ storage });
-
 // Upload new download
-router.post("/", upload.single("file"), async (req, res) => {
+router.post("/", downloadFile.single("file"), async (req, res) => {
   try {
     const { title, description } = req.body;
-    const fileUrl = `/uploads/downloads/${req.file.filename}`;
+    
+    // Handle file upload (Cloudinary or local)
+    const fileData = handleFileUpload(req.file, 'downloads');
 
-    const newDownload = new Downloads({ title, description, fileUrl });
+    const newDownload = new Downloads({ 
+      title, 
+      description, 
+      fileUrl: fileData.path,
+      fileSize: fileData.size,
+      cloudinaryPublicId: fileData.cloudinaryPublicId || null
+    });
+    
     await newDownload.save();
     res.status(201).json(newDownload);
   } catch (error) {
+    console.error('Upload error:', error);
     res.status(500).json({ error: "Failed to upload file" });
   }
 });
@@ -47,12 +45,13 @@ router.delete("/:id", async (req, res) => {
     const download = await Downloads.findById(req.params.id);
     if (!download) return res.status(404).json({ error: "File not found" });
 
-    const filePath = path.join(process.cwd(), download.fileUrl);
-    if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+    // Delete file from storage (Cloudinary or local)
+    await handleFileDeletion(download.fileUrl, download.cloudinaryPublicId);
 
     await Downloads.findByIdAndDelete(req.params.id);
     res.json({ message: "File deleted successfully" });
   } catch (error) {
+    console.error('Delete error:', error);
     res.status(500).json({ error: "Failed to delete file" });
   }
 });

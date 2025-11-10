@@ -6,7 +6,7 @@ import "./SiteSettings.css";
 
 // Define the base API URL for your application
 // This constant is clean and only points to the base API path.
-const BASE_API_URL = "http://localhost:5000/api"; 
+const BASE_API_URL = process.env.REACT_APP_API_URL; 
 
 // NOTE: The 'normalizeUrl' helper was removed as it was not solving the issue, 
 // and we are now manually building the correct, simple path.

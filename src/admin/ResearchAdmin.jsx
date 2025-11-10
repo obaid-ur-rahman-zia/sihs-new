@@ -20,7 +20,7 @@ function ResearchAdmin() {
 
   const fetchResearch = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/research");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/research`);
       const data = await res.json();
       setItems(data);
     } catch (err) {
@@ -53,8 +53,8 @@ function ResearchAdmin() {
 
     try {
       const url = editingId
-        ? `http://localhost:5000/api/research/${editingId}`
-        : "http://localhost:5000/api/research";
+        ? `${process.env.REACT_APP_API_URL}/research/${editingId}`
+        : `${process.env.REACT_APP_API_URL}/research`;
       const method = editingId ? "PUT" : "POST";
 
       const res = await fetch(url, {
@@ -97,7 +97,7 @@ function ResearchAdmin() {
     if (!window.confirm("Are you sure you want to delete this paper?")) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/api/research/${id}`, {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/research/${id}`, {
         method: "DELETE",
       });
       if (res.ok) setItems((prev) => prev.filter((i) => i._id !== id));
@@ -165,7 +165,7 @@ function ResearchAdmin() {
             {formData.fileUrl && (
               <div className="preview-file">
                 <a
-                  href={`http://localhost:5000${formData.fileUrl}`}
+                  href={`API_BASE_URL${formData.fileUrl}`}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -208,7 +208,7 @@ function ResearchAdmin() {
                 {i.fileUrl && (
                   <div>
                     <a
-                      href={`http://localhost:5000${i.fileUrl}`}
+                      href={`API_BASE_URL${i.fileUrl}`}
                       target="_blank"
                       rel="noreferrer"
                     >

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { AUTH_API } from "../api";
 import "./Signup.css";
 
 function AdminSignup() {
@@ -37,8 +38,18 @@ function AdminSignup() {
 
     setLoading(true);
 
+    // Debug: Check API configuration
+    console.log("Using AUTH_API.SIGNUP:", AUTH_API.SIGNUP);
+    
+    if (!AUTH_API.SIGNUP) {
+      console.error("API configuration error: AUTH_API.SIGNUP is not defined");
+      setError("Configuration error: API endpoint not found. Please check your api.js configuration.");
+      setLoading(false);
+      return;
+    }
+
     try {
-      const response = await fetch("http://localhost:5000/api/auth/signup", {
+      const response = await fetch(AUTH_API.SIGNUP, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

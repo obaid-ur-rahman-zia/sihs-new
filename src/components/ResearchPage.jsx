@@ -6,7 +6,7 @@ import "./ResearchPage.css";
 function ResearchPage() {
   const [research, setResearch] = useState([]);
 
-  // Extract the root domain for file URLs: http://localhost:5000
+  // Extract the root domain for file URLs: API_BASE_URL
   const baseDomainUrl = API_BASE_URL.replace("/api", "");
 
   useEffect(() => {

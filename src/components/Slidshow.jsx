@@ -16,7 +16,7 @@ function Slidshow() {
   const [images, setImages] = useState(defaultImages);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Extract the root domain for file URLs: http://localhost:5000
+  // Extract the root domain for file URLs: API_BASE_URL
   const baseDomainUrl = API_BASE_URL.replace("/api", "");
 
   useEffect(() => {

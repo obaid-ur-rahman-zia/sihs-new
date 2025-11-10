@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// Assuming SETTINGS_API.SLIDER is the endpoint '/slider' and API_BASE_URL is 'http://localhost:5000/api'
+// Assuming SETTINGS_API.SLIDER is the endpoint '/slider' and API_BASE_URL is 'API_BASE_URL/api'
 import { SETTINGS_API, API_BASE_URL } from "../api";
 import "./SliderSettings.css";
 
@@ -7,12 +7,12 @@ function SliderSettings() {
   const [slides, setSlides] = useState([]);
   const [popup, setPopup] = useState({ show: false, type: "", message: "" });
 
-  // Extract the root domain for file URLs: http://localhost:5000
+  // Extract the root domain for file URLs: API_BASE_URL
   const baseDomainUrl = API_BASE_URL.replace("/api", "");
   
   // Construct the full API URL for fetching/saving slides
-  const SLIDER_API_URL = `${API_BASE_URL}${SETTINGS_API.SLIDER}`; // e.g., http://localhost:5000/api/slider
-  const UPLOAD_API_URL = `${API_BASE_URL}${SETTINGS_API.SLIDER}/upload`; // e.g., http://localhost:5000/api/slider/upload
+  const SLIDER_API_URL = `${API_BASE_URL}${SETTINGS_API.SLIDER}`; // e.g., API_BASE_URL/api/slider
+  const UPLOAD_API_URL = `${API_BASE_URL}${SETTINGS_API.SLIDER}/upload`; // e.g., API_BASE_URL/api/slider/upload
 
   // ✅ Popup Message System
   const showPopup = (type, message) => {

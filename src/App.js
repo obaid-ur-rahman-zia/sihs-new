@@ -21,6 +21,7 @@ import ContactUs from "./pages/ContactUs.jsx";
 import AdminLogin from "./admin/Auth.jsx";
 import AdminSignup from "./admin/Signup.jsx";
 import AdminLayout from "./admin/AdminLayout.jsx";
+import AdminDashboard from "./admin/AdminDashboard.jsx";
 import SliderSettings from "./admin/SliderSettings.jsx";
 import NewsAdmin from "./admin/NewsAdmin.jsx";
 import DownloadsAdmin from "./admin/DownloadsAdmin.jsx";
@@ -60,7 +61,7 @@ function App() {
 
           {/* <Route path="/admin" element={<ProtectedRoute><AdminLayout/></ProtectedRoute>}> */}
           <Route path="/admin" element={<AdminLayout/>}>
-            <Route index element={<Navigate to="profile" replace />} />
+            <Route index element={<AdminDashboard />} />
             <Route path="slider" element={<SliderSettings />} />
             <Route path="news" element={<NewsAdmin />} />
             <Route path="downloads" element={<DownloadsAdmin />} />

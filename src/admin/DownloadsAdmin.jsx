@@ -12,7 +12,7 @@ function DownloadsAdmin() {
 
   const fetchDownloads = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/downloads");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/downloads`);
       const data = await res.json();
       setFiles(data);
     } catch (error) {
@@ -43,7 +43,7 @@ function DownloadsAdmin() {
     formData.append("file", newFile.file);
 
     try {
-      const res = await fetch("http://localhost:5000/api/downloads", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/downloads`, {
         method: "POST",
         body: formData,
       });
@@ -59,7 +59,7 @@ function DownloadsAdmin() {
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this file?")) return;
     try {
-      await fetch(`http://localhost:5000/api/downloads/${id}`, {
+      await fetch(`${process.env.REACT_APP_API_URL}/downloads/${id}`, {
         method: "DELETE",
       });
       setFiles((prev) => prev.filter((f) => f._id !== id));
@@ -136,7 +136,7 @@ function DownloadsAdmin() {
               </div>
               <div className="actions">
                 <a
-                  href={`http://localhost:5000${f.fileUrl}`}
+                  href={`API_BASE_URL${f.fileUrl}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-view"

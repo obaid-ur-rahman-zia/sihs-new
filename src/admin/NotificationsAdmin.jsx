@@ -50,7 +50,7 @@ function NotificationsAdmin() {
     if (formData.image) formDataToSend.append("image", formData.image);
 
     try {
-      const res = await fetch("http://localhost:5000/api/notifications", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/notifications`, {
         method: "POST",
         body: formDataToSend,
       });
@@ -76,7 +76,7 @@ function NotificationsAdmin() {
     if (!window.confirm("Are you sure you want to delete this notification?"))
       return;
     try {
-      await fetch(`http://localhost:5000/api/notifications/${id}`, {
+      await fetch(`${process.env.REACT_APP_API_URL}/notifications/${id}`, {
         method: "DELETE",
       });
       setNotes((prev) => prev.filter((n) => n._id !== id));
@@ -164,7 +164,7 @@ function NotificationsAdmin() {
               <div className="note-content">
                 {n.imageUrl && (
                   <img
-                    src={`http://localhost:5000${n.imageUrl}`}
+                    src={`API_BASE_URL${n.imageUrl}`}
                     alt="Notice"
                     className="note-img"
                   />

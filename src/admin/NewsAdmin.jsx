@@ -138,7 +138,7 @@ function NewsAdmin() {
               <div className="news-info">
                 {ev.imageUrl && (
                   <img
-                    src={`http://localhost:5000${ev.imageUrl}`}
+                    src={`API_BASE_URL${ev.imageUrl}`}
                     alt={ev.title}
                     className="news-img"
                   />

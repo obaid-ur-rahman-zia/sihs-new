@@ -7,7 +7,7 @@ function LatestNews() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/events")
+      .get(`${process.env.REACT_APP_API_URL}/events`)
       .then((res) => setLatest(res.data.slice(0, 3)))
       .catch((err) => console.error(err));
   }, []);
@@ -21,7 +21,7 @@ function LatestNews() {
           {latest.map((ev) => (
             <div className="event-card-latest" key={ev._id}>
               <img
-                src={`http://localhost:5000${ev.imageUrl || "/images/default.jpg"}`}
+                src={`API_BASE_URL${ev.imageUrl || "/images/default.jpg"}`}
                 alt={ev.title}
               />
               <div className="card-body-latest">

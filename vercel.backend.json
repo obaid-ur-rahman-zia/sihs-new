@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/server/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/src/server/index.js"
+    },
+    {
+      "src": "/uploads/(.*)",
+      "dest": "/src/server/index.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "MONGO_DB_URL": "@mongo_db_url",
+    "JWT_SECRET": "@jwt_secret",
+    "EMAIL_HOST": "@email_host",
+    "EMAIL_PORT": "@email_port",
+    "EMAIL_USER": "@email_user",
+    "EMAIL_PASS": "@email_pass",
+    "CLOUDINARY_CLOUD_NAME": "@cloudinary_cloud_name",
+    "CLOUDINARY_API_KEY": "@cloudinary_api_key",
+    "CLOUDINARY_API_SECRET": "@cloudinary_api_secret",
+    "FRONTEND_URL": "@frontend_url",
+    "USE_CLOUDINARY": "true"
+  }
+}
