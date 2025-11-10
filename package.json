@@ -17,20 +17,47 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "framer-motion": "^12.23.24",
+    "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.546.0",
     "mongoose": "^8.19.1",
     "multer": "^2.0.2",
     "multer-storage-cloudinary": "^4.0.0",
     "nodemailer": "^7.0.9",
+    "nodemon": "^3.1.10",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",
     "react-router-dom": "^7.9.4",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "web-vitals": "^5.1.0"
   },
   "scripts": {
+    "start:frontend": "react-scripts start",
+    "build:frontend": "react-scripts build",
+    "test:frontend": "react-scripts test",
+    "eject:frontend": "react-scripts eject",
+    "server:dev": "node src/server/index.js",
     "build": "npm install",
     "start": "node src/server/index.js",
     "server": "node src/server/index.js"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
