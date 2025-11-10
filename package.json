@@ -29,7 +29,7 @@
     "react-scripts": "5.0.1"
   },
   "scripts": {
-    "build": "react-scripts build",
+    "build": "echo 'No build step required'",
     "start": "node src/server/index.js",
     "server": "node src/server/index.js"
   }
