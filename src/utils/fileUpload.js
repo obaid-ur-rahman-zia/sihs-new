@@ -7,7 +7,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Determine if we should use Cloudinary or local storage
-const USE_CLOUDINARY = process.env.USE_CLOUDINARY === 'true' || process.env.NODE_ENV === 'production';
+const USE_CLOUDINARY = process.env.USE_CLOUDINARY === 'true' || 
+                      process.env.NODE_ENV === 'production' || 
+                      process.env.VERCEL_ENV === '1';
 
 // Local storage paths
 const LOCAL_UPLOADS_PATH = path.join(__dirname, '../../uploads');

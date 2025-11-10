@@ -37,31 +37,34 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// Serve uploads folder as static
-app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
-
-// Serve React build in production
-if (process.env.NODE_ENV === "production") {
-  const clientBuildPath = path.join(__dirname, "../../build");
-  if (fs.existsSync(clientBuildPath)) {
-    app.use(express.static(clientBuildPath));
-    app.get("*", (req, res) => {
-      res.sendFile(path.join(clientBuildPath, "index.html"));
-    });
-  }
+// Only serve static uploads in development
+if (process.env.NODE_ENV !== "production" && process.env.VERCEL_ENV !== "1") {
+  app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 }
 
-// Ensure uploads directories exist, create if missing
-const uploadDirs = [
-  path.join(__dirname, "../uploads/events"),
-  path.join(__dirname, "../uploads/downloads"),
-  path.join(__dirname, "../uploads/notifications"),
-  path.join(__dirname, "../uploads/research"),
-  path.join(__dirname, "../uploads/logos"),
-];
-uploadDirs.forEach((dir) => {
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-});
+// Serve React build in production (if using combined deployment)
+if (process.env.NODE_ENV === "production" && fs.existsSync(path.join(__dirname, "../../build"))) {
+  const clientBuildPath = path.join(__dirname, "../../build");
+  app.use(express.static(clientBuildPath));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(clientBuildPath, "index.html"));
+  });
+}
+
+// Only create upload directories in development/local environment
+if (process.env.NODE_ENV !== "production" && process.env.VERCEL_ENV !== "1") {
+  // Ensure uploads directories exist, create if missing
+  const uploadDirs = [
+    path.join(__dirname, "../uploads/events"),
+    path.join(__dirname, "../uploads/downloads"),
+    path.join(__dirname, "../uploads/notifications"),
+    path.join(__dirname, "../uploads/research"),
+    path.join(__dirname, "../uploads/logos"),
+  ];
+  uploadDirs.forEach((dir) => {
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  });
+}
 
 
 console.log(`
@@ -99,7 +102,9 @@ app.get('/api/health', (req, res) => {
     status: 'OK', 
     timestamp: new Date().toISOString(),
     environment: process.env.NODE_ENV || 'development',
-    cloudinary: process.env.USE_CLOUDINARY === 'true' ? 'enabled' : 'disabled'
+    cloudinary: process.env.USE_CLOUDINARY === 'true' ? 'enabled' : 'disabled',
+    vercel_env: process.env.VERCEL_ENV || 'not set',
+    storage_mode: process.env.NODE_ENV === 'production' || process.env.VERCEL_ENV === '1' ? 'cloudinary' : 'local'
   });
 });
 

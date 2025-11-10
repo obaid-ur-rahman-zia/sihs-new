@@ -28,6 +28,7 @@
     "CLOUDINARY_API_KEY": "@cloudinary_api_key",
     "CLOUDINARY_API_SECRET": "@cloudinary_api_secret",
     "FRONTEND_URL": "@frontend_url",
-    "USE_CLOUDINARY": "true"
+    "USE_CLOUDINARY": "true",
+    "VERCEL_ENV": "1"
   }
 }
