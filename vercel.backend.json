@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "name": "sihs-backend",
   "builds": [
     {
       "src": "src/server/index.js",
@@ -19,6 +20,16 @@
   "env": {
     "NODE_ENV": "production",
     "USE_CLOUDINARY": "true",
-    "VERCEL_ENV": "1"
+    "VERCEL_ENV": "1",
+    "MONGO_DB_URL": "mongodb+srv://sihsdbuser:sihsdbuser@sihs-cluster.kxgy0zp.mongodb.net/?appName=sihs-cluster",
+    "JWT_SECRET": "your-super-secret-jwt-key-here",
+    "EMAIL_HOST": "smtp.gmail.com",
+    "EMAIL_PORT": "587",
+    "EMAIL_USER": "admin@gmail.com",
+    "EMAIL_PASS": "ADMIN@12345",
+    "CLOUDINARY_CLOUD_NAME": "dvbzgoadp",
+    "CLOUDINARY_API_KEY": "489437382453484",
+    "CLOUDINARY_API_SECRET": "IUrL0R9Pai6OeBY6pSI7BaW3b_4",
+    "FRONTEND_URL": "https://your-frontend-domain.vercel.app"
   }
 }
