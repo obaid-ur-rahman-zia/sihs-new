@@ -56,7 +56,7 @@ uploadDirs.forEach((dir) => {
 
 // Connect to MongoDB
 mongoose
-  .connect("mongodb+srv://mzeeshanmalik130_db_user:pKV96Ezq7NZXSKKs@cluster0.hjjvwmc.mongodb.net/?appName=Cluster0"
+  .connect(process.env.MONGO_DB_URL
 , {
     useNewUrlParser: true,
     useUnifiedTopology: true,
