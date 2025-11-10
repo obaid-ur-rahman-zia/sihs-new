@@ -36,8 +36,9 @@
     "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-  "build": "echo 'No build step required'",
-    "server": "nodemon src/server/index.js"
+    "build": "echo 'No build step required'",
+    "server": "node src/server/index.js",
+    "nodemon:server": "nodemon src/server/index.js"
   },
   "eslintConfig": {
     "extends": [
