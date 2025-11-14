@@ -87,7 +87,7 @@ console.log(`
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.MONGO_DB_URL
+  .connect(process.env.MONGO_DB_URL || 
 , {
     useNewUrlParser: true,
     useUnifiedTopology: true,
